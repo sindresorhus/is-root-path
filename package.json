@@ -1,0 +1,36 @@
+{
+  "name": "is-root-path",
+  "version": "0.0.0",
+  "description": "Check if a path is the root path. Example: `/` or `C:\\`",
+  "license": "MIT",
+  "repository": "sindresorhus/is-root-path",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "root",
+    "path",
+    "dir",
+    "directory",
+    "top",
+    "level",
+    "absolute",
+    "check",
+    "detect",
+    "is"
+  ],
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
