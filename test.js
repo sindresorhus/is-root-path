@@ -1,31 +1,29 @@
-'use strict';
-var test = require('ava');
-var isRootPath = require('./');
+import test from 'ava';
+import m from './';
 
-test(function (t) {
-	var _ = process.platform;
+test(t => {
+	const _ = process.platform;
 
 	Object.defineProperty(process, 'darwin', {
 		value: 'win32',
 		writable: true
 	});
-	t.assert(isRootPath('/'));
-	t.assert(!isRootPath('/Users/'));
-	t.assert(!isRootPath(''));
-	t.assert(!isRootPath('.'));
-	t.assert(!isRootPath(' '));
+	t.true(m('/'));
+	t.false(m('/Users/'));
+	t.false(m(''));
+	t.false(m('.'));
+	t.false(m(' '));
 
 	Object.defineProperty(process, 'platform', {
 		value: 'win32',
 		writable: true
 	});
-	t.assert(isRootPath('C:\\'));
-	t.assert(isRootPath('/'));
-	t.assert(!isRootPath('C:\\foo'));
-	t.assert(!isRootPath(''));
-	t.assert(!isRootPath('.'));
-	t.assert(!isRootPath(' '));
+	t.true(m('C:\\'));
+	t.true(m('/'));
+	t.false(m('C:\\foo'));
+	t.false(m(''));
+	t.false(m('.'));
+	t.false(m(' '));
 
 	process.platform = _;
-	t.end();
 });
