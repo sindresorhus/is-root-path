@@ -6,14 +6,14 @@
 ## Install
 
 ```
-$ npm install --save is-root-path
+$ npm install is-root-path
 ```
 
 
 ## Usage
 
 ```js
-var isRootPath = require('is-root-path');
+const isRootPath = require('is-root-path');
 
 isRootPath('/');
 //=> true
@@ -25,4 +25,4 @@ isRootPath('/Users');
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

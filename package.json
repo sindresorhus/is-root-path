@@ -1,36 +1,39 @@
 {
-  "name": "is-root-path",
-  "version": "1.0.0",
-  "description": "Check if a path is the root path. Example: `/` or `C:\\`",
-  "license": "MIT",
-  "repository": "sindresorhus/is-root-path",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "root",
-    "path",
-    "dir",
-    "directory",
-    "top",
-    "level",
-    "absolute",
-    "check",
-    "detect",
-    "is"
-  ],
-  "devDependencies": {
-    "ava": "*"
-  }
+	"name": "is-root-path",
+	"version": "1.0.0",
+	"description": "Check if a path is the root path. Example: `/` or `C:\\`",
+	"license": "MIT",
+	"repository": "sindresorhus/is-root-path",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava && tsd"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"root",
+		"path",
+		"dir",
+		"directory",
+		"top",
+		"level",
+		"absolute",
+		"check",
+		"detect",
+		"is"
+	],
+	"devDependencies": {
+		"ava": "^1.4.1",
+		"tsd": "^0.7.2",
+		"xo": "^0.24.0"
+	}
 }
