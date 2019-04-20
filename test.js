@@ -1,29 +1,33 @@
 import test from 'ava';
-import m from './';
+import isRootPath from '.';
 
-test(t => {
-	const _ = process.platform;
+test('main', t => {
+	const originalPlatform = process.platform;
 
-	Object.defineProperty(process, 'darwin', {
-		value: 'win32',
-		writable: true
+	Object.defineProperty(process, 'platform', {
+		value: 'darwin',
+		writable: true,
+		configurable: true,
+		enumerable: true
 	});
-	t.true(m('/'));
-	t.false(m('/Users/'));
-	t.false(m(''));
-	t.false(m('.'));
-	t.false(m(' '));
+	t.true(isRootPath('/'));
+	t.false(isRootPath('/Users/'));
+	t.false(isRootPath(''));
+	t.false(isRootPath('.'));
+	t.false(isRootPath(' '));
 
 	Object.defineProperty(process, 'platform', {
 		value: 'win32',
-		writable: true
+		writable: true,
+		configurable: true,
+		enumerable: true
 	});
-	t.true(m('C:\\'));
-	t.true(m('/'));
-	t.false(m('C:\\foo'));
-	t.false(m(''));
-	t.false(m('.'));
-	t.false(m(' '));
+	t.true(isRootPath('C:\\'));
+	t.true(isRootPath('/'));
+	t.false(isRootPath('C:\\foo'));
+	t.false(isRootPath(''));
+	t.false(isRootPath('.'));
+	t.false(isRootPath(' '));
 
-	process.platform = _;
+	process.platform = originalPlatform;
 });
