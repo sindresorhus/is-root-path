@@ -1,17 +1,18 @@
-'use strict';
-// https://github.com/iojs/io.js/blob/5883a59b21a97e8b7339f435c977155a2c29ba8d/lib/path.js#L43
+import process from 'node:process';
+
 const windowsPathRegex = /^(?:[a-zA-Z]:|[\\/]{2}[^\\/]+[\\/]+[^\\/]+)?[\\/]$/;
 
-module.exports = path => {
+export default function isRootPath(path) {
 	if (typeof path !== 'string') {
 		throw new TypeError('Expected a string');
 	}
 
 	path = path.trim();
 
-	if (path === '') {
+	// While it's unclear how long a root path can be on Windows, it definitely cannot be longer than 100 characters.
+	if (path === '' || path.length > 100) {
 		return false;
 	}
 
 	return process.platform === 'win32' ? windowsPathRegex.test(path) : path === '/';
-};
+}

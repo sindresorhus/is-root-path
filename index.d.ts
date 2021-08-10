@@ -3,7 +3,7 @@ Check if a path is the root path. Example: `/` or `C:\`.
 
 @example
 ```
-import isRootPath = require('is-root-path');
+import isRootPath from 'is-root-path';
 
 isRootPath('/');
 //=> true
@@ -12,6 +12,4 @@ isRootPath('/Users');
 //=> false
 ```
 */
-declare function isRootPath(path: string): boolean;
-
-export = isRootPath;
+export default function isRootPath(path: string): boolean;

@@ -1,4 +1,4 @@
 import {expectType} from 'tsd';
-import isRootPath = require('.');
+import isRootPath from './index.js';
 
 expectType<boolean>(isRootPath('/'));

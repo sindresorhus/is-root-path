@@ -2,18 +2,16 @@
 
 > Check if a path is the root path. Example: `/` or `C:\`
 
-
 ## Install
 
 ```
 $ npm install is-root-path
 ```
 
-
 ## Usage
 
 ```js
-const isRootPath = require('is-root-path');
+import isRootPath from 'is-root-path';
 
 isRootPath('/');
 //=> true
@@ -21,8 +19,3 @@ isRootPath('/');
 isRootPath('/Users');
 //=> false
 ```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

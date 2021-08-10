@@ -1,5 +1,6 @@
+import process from 'node:process';
 import test from 'ava';
-import isRootPath from '.';
+import isRootPath from './index.js';
 
 test('main', t => {
 	const originalPlatform = process.platform;
@@ -8,7 +9,7 @@ test('main', t => {
 		value: 'darwin',
 		writable: true,
 		configurable: true,
-		enumerable: true
+		enumerable: true,
 	});
 	t.true(isRootPath('/'));
 	t.false(isRootPath('/Users/'));
@@ -20,7 +21,7 @@ test('main', t => {
 		value: 'win32',
 		writable: true,
 		configurable: true,
-		enumerable: true
+		enumerable: true,
 	});
 	t.true(isRootPath('C:\\'));
 	t.true(isRootPath('/'));
